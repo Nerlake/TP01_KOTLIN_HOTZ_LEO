@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TP01_LEO_HOTZ</string>
+    <string name="connexion">Connexion</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="commencer">Commencer</string>
+    <string name="liste_des_quizz">Liste des quizz</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="jeux_vid_os">Jeux-vidéos</string>
+    <string name="demarrer">Demarrer</string>
+    <string name="cin_ma">Cinéma</string>
+    <string name="musique">Musique</string>
+    <string name="question">Question</string>
+    <string name="quelle_est_la_reponse">Quelle est la réponse?</string>
+    <string name="oui">Oui</string>
+    <string name="non">Non</string>
+</resources>
