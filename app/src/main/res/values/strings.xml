@@ -14,4 +14,10 @@
     <string name="quelle_est_la_reponse">Quelle est la réponse?</string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
+    <string name="score">Score:</string>
+    <string name="_0">0</string>
+    <string name="question_n">Question n°</string>
+    <string name="_1">1</string>
+    <string name="retour_au_menu">Retour au menu</string>
+    <string name="resultat">Resultat</string>
 </resources>

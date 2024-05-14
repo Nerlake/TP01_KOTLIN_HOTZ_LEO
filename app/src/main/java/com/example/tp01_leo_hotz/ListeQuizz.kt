@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +34,24 @@ class ListeQuizz : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val view = inflater.inflate(R.layout.fragment_liste_quizz, container, false)
+        val cimemaBtn: Button = view.findViewById(R.id.cinemaBtn)
+        cimemaBtn.setOnClickListener {
+            startGame("Cinema");
+        }
+        val jeuxVideoBtn: Button = view.findViewById(R.id.jeuxVideoBtn)
+        jeuxVideoBtn.setOnClickListener {
+            startGame("Jeux-video");
+        }
+        val musiqueBtn: Button = view.findViewById(R.id.musiqueBtn)
+        musiqueBtn.setOnClickListener {
+            startGame("Musique");
+        }
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_liste_quizz, container, false)
+        return view
     }
 
     companion object {
@@ -52,10 +69,17 @@ class ListeQuizz : Fragment() {
             ListeQuizz()
     }
 
-    fun startGame(view: View) {
-        if (activity is GameActivity) {
-            (activity as GameActivity).startGame()
-        }
+    private fun startGame(theme: String) {
+        val questionFragment = QuestionFragment()
+
+        val bundle = Bundle()
+        bundle.putString("theme", theme)
+        questionFragment.arguments = bundle
+
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentView, questionFragment)
+        transaction.addToBackStack(null) // this allows you to go back to the previous fragment
+        transaction.commit()
     }
 
 }

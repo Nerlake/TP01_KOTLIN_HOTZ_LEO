@@ -33,11 +33,11 @@
                             android:layout_marginRight="10sp"
                         />
                         <Button
+                            android:id="@+id/cinemaBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/demarrer"
                             android:layout_marginLeft="10sp"
-                            android:onClick="startGame"
                         />
 
                 </LinearLayout>
@@ -54,6 +54,7 @@
                             android:layout_marginRight="10sp"
                             />
                         <Button
+                            android:id="@+id/jeuxVideoBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/demarrer"
@@ -75,6 +76,7 @@
                             android:layout_marginRight="10sp"
                             />
                         <Button
+                            android:id="@+id/musiqueBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/demarrer"

@@ -36,9 +36,7 @@ class GameActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.fragmentView, fragment).commit();
     }
 
-    public fun startGame(){
-        changeFragmentTo(fragmentGame)
-    }
+
 
 
 

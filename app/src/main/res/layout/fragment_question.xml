@@ -11,12 +11,33 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="10sp">
         <TextView
+            android:id="@+id/themeTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question"
             android:layout_marginBottom="100sp"
         />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="100sp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/question_n"
+                />
+            <TextView
+                android:id="@+id/numQuestionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_1"/>
+
+        </LinearLayout>
         <TextView
+            android:id="@+id/questionTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/quelle_est_la_reponse"
@@ -26,17 +47,38 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
+            android:layout_marginBottom="100sp"
         >
             <Button
+                android:id="@+id/response1Btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/oui"
             />
             <Button
+                android:id="@+id/response2Btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/non"
                 />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/score"
+                />
+            <TextView
+                android:id="@+id/scoreTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"/>
+
         </LinearLayout>
 
 

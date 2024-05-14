@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                     android:text="@string/pseudo"
                     />
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/pseudoEt"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
