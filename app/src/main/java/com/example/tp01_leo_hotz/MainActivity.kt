@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,7 +14,10 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    var pseudo: EditText? = null
+    //var pseudo: EditText? = null
+    private lateinit var pseudo: EditText
+    //private lateinit var playerNameTv: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,12 +28,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        pseudo = findViewById(R.id.pseudoEt)
+
 
     }
 
     fun connectToGame(view: View) {
-        pseudo = findViewById(R.id.pseudoEt)
-        savePlayerName(this, pseudo.toString())
+
+        val playerName = pseudo.text.toString()
+        savePlayerName(this, playerName)
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent);
     }

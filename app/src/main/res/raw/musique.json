@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Quel groupe a chanté la chanson 'Bohemian Rhapsody' ?",
+    "reponse": ["The Beatles", "Queen"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel chanteur est connu comme le 'King of Pop' ?",
+    "reponse": ["Michael Jackson", "Elvis Presley"],
+    "resultat": 0
+  },
+  {
+    "question": "Quel artiste a sorti l'album '25' en 2015 ?",
+    "reponse": ["Adele", "Beyoncé"],
+    "resultat": 0
+  },
+  {
+    "question": "Quel groupe est célèbre pour la chanson 'Stairway to Heaven' ?",
+    "reponse": ["Pink Floyd", "Led Zeppelin"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel rappeur a interprété 'Lose Yourself' pour le film '8 Mile' ?",
+    "reponse": ["Eminem", "Jay-Z"],
+    "resultat": 0
+  },
+  {
+    "question": "Quelle chanteuse est connue pour son alter ego Sasha Fierce ?",
+    "reponse": ["Rihanna", "Beyoncé"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel groupe a sorti l'album 'The Dark Side of the Moon' ?",
+    "reponse": ["The Rolling Stones", "Pink Floyd"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel artiste a chanté 'Purple Rain' ?",
+    "reponse": ["Prince", "David Bowie"],
+    "resultat": 0
+  },
+  {
+    "question": "Quel groupe est connu pour la chanson 'Wonderwall' ?",
+    "reponse": ["Oasis", "Blur"],
+    "resultat": 0
+  },
+  {
+    "question": "Quel chanteur a popularisé la chanson 'Rocket Man' ?",
+    "reponse": ["Elton John", "Billy Joel"],
+    "resultat": 0
+  }
+]

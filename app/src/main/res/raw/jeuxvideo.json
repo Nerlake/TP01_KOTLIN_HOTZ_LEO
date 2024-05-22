@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Quel est le nom du plombier moustachu, personnage principal de nombreux jeux Nintendo ?",
+    "reponse": ["Luigi", "Mario"],
+    "resultat": 1
+  },
+  {
+    "question": "Dans quel jeu incarne-t-on un chasseur de trésors nommé Nathan Drake ?",
+    "reponse": ["Uncharted", "Tomb Raider"],
+    "resultat": 0
+  },
+  {
+    "question": "Quel jeu de combat met en scène des personnages comme Ryu et Chun-Li ?",
+    "reponse": ["Tekken", "Street Fighter"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel est le titre du jeu où les joueurs construisent et explorent des mondes en blocs ?",
+    "reponse": ["Minecraft", "Roblox"],
+    "resultat": 0
+  },
+  {
+    "question": "Dans quel jeu peut-on jouer avec des équipes de champions pour détruire le Nexus ennemi ?",
+    "reponse": ["Dota 2", "League of Legends"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel jeu de survie post-apocalyptique met en scène Joel et Ellie ?",
+    "reponse": ["Days Gone", "The Last of Us"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel jeu se déroule dans une ville fictive appelée Los Santos ?",
+    "reponse": ["Watch Dogs 2", "Grand Theft Auto V"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel jeu de simulation permet aux joueurs de gérer leur propre île déserte ?",
+    "reponse": ["Animal Crossing: New Horizons", "Stardew Valley"],
+    "resultat": 0
+  },
+  {
+    "question": "Quel jeu d'action-aventure présente un héros nommé Link dans le royaume d'Hyrule ?",
+    "reponse": ["Final Fantasy", "The Legend of Zelda"],
+    "resultat": 1
+  },
+  {
+    "question": "Quel jeu de tir à la première personne est célèbre pour son mode Battle Royale ?",
+    "reponse": ["Fortnite", "Counter-Strike"],
+    "resultat": 0
+  }
+]
