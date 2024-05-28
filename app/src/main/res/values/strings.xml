@@ -20,4 +20,5 @@
     <string name="_1">1</string>
     <string name="retour_au_menu">Retour au menu</string>
     <string name="resultat">Resultat</string>
+    <string name="meilleur_score">Meilleur score:</string>
 </resources>

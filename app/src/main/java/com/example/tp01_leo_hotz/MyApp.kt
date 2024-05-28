@@ -6,15 +6,20 @@ import com.example.tp01_leo_hotz.datas.AppDatabase
 
 class MyApp : Application() {
     companion object {
-        lateinit var database: AppDatabase
+        val database: AppDatabase by lazy {
+            Room.databaseBuilder(
+                instance.applicationContext,
+                AppDatabase::class.java,
+                "app_database"
+            ).addMigrations(AppDatabase.MIGRATION_1_2)
+                .build()
+        }
+        lateinit var instance: MyApp
+            private set
     }
 
     override fun onCreate() {
         super.onCreate()
-        database = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java,
-            "app_database"
-        ).build()
+        instance = this
     }
 }

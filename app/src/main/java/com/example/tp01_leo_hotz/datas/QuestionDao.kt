@@ -9,7 +9,6 @@ import androidx.room.Update
 @Dao
 interface QuestionDao {
 
-
     @Insert
     fun insert(vararg question: Question)
     @Query("SELECT * FROM question WHERE category == :categorie")
