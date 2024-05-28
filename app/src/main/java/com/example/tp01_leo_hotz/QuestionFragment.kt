@@ -8,20 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.InputStreamReader
-
-data class CinemaQuestion(
-    val question: String,
-    val reponse: List<String>,
-    val resultat: Int,
-)
+import com.example.tp01_leo_hotz.datas.Question
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class QuestionFragment : Fragment() {
     private var theme: String? = null
 
-    private lateinit var cinemaQuestions: List<CinemaQuestion>
+    private lateinit var questions: List<Question>
     private var numQuestionTv: TextView? = null
     private var questionTv: TextView? = null
     private var scoreTv: TextView? = null
@@ -53,10 +49,19 @@ class QuestionFragment : Fragment() {
             verifyResponse(1)
         }
 
-        cinemaQuestions = loadCinemaQuestions(requireContext())
-        startGame()
+        loadQuestionsByCategory(requireContext(), theme ?: "")
 
         return view
+    }
+
+    private fun loadQuestionsByCategory(context: Context, category: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = MyApp.database.questionDao().getAllByCategorie(category)
+            withContext(Dispatchers.Main) {
+                questions = response.toList()
+                startGame()
+            }
+        }
     }
 
     private fun startGame() {
@@ -64,13 +69,15 @@ class QuestionFragment : Fragment() {
     }
 
     private fun setQuestion(number: Int) {
-        questionTv?.text = cinemaQuestions[number].question
-        response1Btn?.text = cinemaQuestions[number].reponse[0]
-        response2Btn?.text = cinemaQuestions[number].reponse[1]
+        if (questions.isNotEmpty()) {
+            questionTv?.text = questions[number].question
+            response1Btn?.text = questions[number].reponse[0]
+            response2Btn?.text = questions[number].reponse[1]
+        }
     }
 
     private fun verifyResponse(response: Int) {
-        val expectedResponse = cinemaQuestions[currentQuestion].resultat
+        val expectedResponse = questions[currentQuestion].resultat
         if (response == expectedResponse) {
             incrementScore()
         }
@@ -79,7 +86,7 @@ class QuestionFragment : Fragment() {
     }
 
     private fun nextQuestion() {
-        if (currentQuestion < cinemaQuestions.size - 1) {
+        if (currentQuestion < questions.size - 1) {
             currentQuestion++
             val numQuestion = currentQuestion + 1
             numQuestionTv?.text = numQuestion.toString()
@@ -105,19 +112,6 @@ class QuestionFragment : Fragment() {
         transaction.replace(R.id.fragmentView, resultFragment)
         transaction.addToBackStack(null)
         transaction.commit()
-    }
-
-    private fun loadCinemaQuestions(context: Context): List<CinemaQuestion> {
-        var inputStream = context.resources.openRawResource(R.raw.cinema)
-        when{
-            theme == "Cinema" -> inputStream = context.resources.openRawResource(R.raw.cinema)
-            theme == "Jeux-video" -> inputStream = context.resources.openRawResource(R.raw.jeuxvideo)
-            theme == "Musique" -> inputStream = context.resources.openRawResource(R.raw.musique)
-        }
-
-        val reader = InputStreamReader(inputStream)
-        val type = object : TypeToken<List<CinemaQuestion>>() {}.type
-        return Gson().fromJson(reader, type)
     }
 
     companion object {

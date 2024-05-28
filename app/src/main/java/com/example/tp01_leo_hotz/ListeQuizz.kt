@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.example.tp01_leo_hotz.enums.Categories
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,15 +39,15 @@ class ListeQuizz : Fragment() {
         val view = inflater.inflate(R.layout.fragment_liste_quizz, container, false)
         val cimemaBtn: Button = view.findViewById(R.id.cinemaBtn)
         cimemaBtn.setOnClickListener {
-            startGame("Cinema");
+            startGame(Categories.CINEMA);
         }
         val jeuxVideoBtn: Button = view.findViewById(R.id.jeuxVideoBtn)
         jeuxVideoBtn.setOnClickListener {
-            startGame("Jeux-video");
+            startGame(Categories.JEUX_VIDEOS);
         }
         val musiqueBtn: Button = view.findViewById(R.id.musiqueBtn)
         musiqueBtn.setOnClickListener {
-            startGame("Musique");
+            startGame(Categories.MUSIQUE);
         }
 
 
@@ -69,11 +70,11 @@ class ListeQuizz : Fragment() {
             ListeQuizz()
     }
 
-    private fun startGame(theme: String) {
+    private fun startGame(theme: Categories) {
         val questionFragment = QuestionFragment()
 
         val bundle = Bundle()
-        bundle.putString("theme", theme)
+        bundle.putString("theme", theme.toString())
         questionFragment.arguments = bundle
 
         val transaction = parentFragmentManager.beginTransaction()
