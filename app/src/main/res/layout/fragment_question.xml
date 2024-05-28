@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
-            android:layout_marginBottom="100sp"
+            android:layout_marginBottom="10sp"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -36,6 +36,16 @@
                 android:text="@string/_1"/>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/timerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:10"
+            android:textSize="24sp"
+            android:layout_marginBottom="90dp"
+            />
+
         <TextView
             android:id="@+id/questionTv"
             android:layout_width="wrap_content"

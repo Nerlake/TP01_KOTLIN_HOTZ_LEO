@@ -2,6 +2,7 @@ package com.example.tp01_leo_hotz
 
 import android.content.Context
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,11 +21,13 @@ class QuestionFragment : Fragment() {
     private lateinit var questions: List<Question>
     private var numQuestionTv: TextView? = null
     private var questionTv: TextView? = null
+    private var timerTv: TextView? = null
     private var scoreTv: TextView? = null
     private var response1Btn: Button? = null
     private var response2Btn: Button? = null
     private var currentQuestion: Int = 0
     private var score = 0
+    private var countDownTimer: CountDownTimer? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +44,7 @@ class QuestionFragment : Fragment() {
         response1Btn = view.findViewById(R.id.response1Btn)
         response2Btn = view.findViewById(R.id.response2Btn)
         scoreTv = view.findViewById(R.id.scoreTv)
+        timerTv = view.findViewById(R.id.timerTv)
 
         response1Btn?.setOnClickListener {
             verifyResponse(0)
@@ -65,7 +69,10 @@ class QuestionFragment : Fragment() {
     }
 
     private fun startGame() {
-        setQuestion(currentQuestion)
+        if (questions.isNotEmpty()) {
+            setQuestion(currentQuestion)
+            startTimer()
+        }
     }
 
     private fun setQuestion(number: Int) {
@@ -90,6 +97,7 @@ class QuestionFragment : Fragment() {
             currentQuestion++
             val numQuestion = currentQuestion + 1
             numQuestionTv?.text = numQuestion.toString()
+            startTimer()
         } else {
             endGame()
         }
@@ -112,6 +120,21 @@ class QuestionFragment : Fragment() {
         transaction.replace(R.id.fragmentView, resultFragment)
         transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    private fun startTimer() {
+        countDownTimer?.cancel()
+        countDownTimer = object : CountDownTimer(10000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val secondsRemaining = millisUntilFinished / 1000
+                timerTv?.text = String.format("%02d:%02d", secondsRemaining / 60, secondsRemaining % 60)
+            }
+
+            override fun onFinish() {
+                nextQuestion()
+                setQuestion(currentQuestion)
+            }
+        }.start()
     }
 
     companion object {
